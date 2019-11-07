@@ -1,0 +1,3 @@
+This package contains all the libraries and include files that go with the newest version of iRIC 3.0 and its corresponding version of CGNS.  The dll files are needed when running the executable of SToRM in the command line in computers without the iRIC installation.
+
+Most recent version: 06/18/2018 from Scott Charlton.

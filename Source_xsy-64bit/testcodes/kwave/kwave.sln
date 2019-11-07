@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "kwave", "kwave.vfproj", "{4CBB5F0F-5960-44AF-8333-3BA6688401BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CBB5F0F-5960-44AF-8333-3BA6688401BF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4CBB5F0F-5960-44AF-8333-3BA6688401BF}.Debug|Win32.Build.0 = Debug|Win32
+		{4CBB5F0F-5960-44AF-8333-3BA6688401BF}.Release|Win32.ActiveCfg = Release|Win32
+		{4CBB5F0F-5960-44AF-8333-3BA6688401BF}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Thu Jun 01 12:40:27 2017
+        MODULE ERRORE__genmod
+          INTERFACE 
+            SUBROUTINE ERRORE
+            END SUBROUTINE ERRORE
+          END INTERFACE 
+        END MODULE ERRORE__genmod

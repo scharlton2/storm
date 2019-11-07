@@ -1,0 +1,9 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:59 2018
+        MODULE SHIELDS_TAU__genmod
+          INTERFACE 
+            FUNCTION SHIELDS_TAU(D)
+              REAL(KIND=8), INTENT(IN) :: D
+              REAL(KIND=8) :: SHIELDS_TAU
+            END FUNCTION SHIELDS_TAU
+          END INTERFACE 
+        END MODULE SHIELDS_TAU__genmod

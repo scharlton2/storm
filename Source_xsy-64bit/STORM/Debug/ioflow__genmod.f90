@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon Apr 07 13:43:44 2014
+        MODULE IOFLOW__genmod
+          INTERFACE 
+            SUBROUTINE IOFLOW(FUNIT)
+              INTEGER(KIND=4), INTENT(IN) :: FUNIT
+            END SUBROUTINE IOFLOW
+          END INTERFACE 
+        END MODULE IOFLOW__genmod

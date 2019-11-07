@@ -1,0 +1,9 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:53 2018
+        MODULE VISCOSITY__genmod
+          INTERFACE 
+            FUNCTION VISCOSITY(T)
+              REAL(KIND=8), INTENT(IN) :: T
+              REAL(KIND=8) :: VISCOSITY
+            END FUNCTION VISCOSITY
+          END INTERFACE 
+        END MODULE VISCOSITY__genmod

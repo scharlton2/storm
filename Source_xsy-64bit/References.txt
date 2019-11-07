@@ -1,0 +1,68 @@
+REFERENCES
+==========
+
+Alcrudo, F., Garcia-Navarro, P., and Saviron, J.-M. (1992). "Flux difference splitting for 1d open channel flow equations," International Journal for Numerical Methods in Fluids, 14, 1009-1018.
+
+Anderson, N., and Björck, A. (1973). "A new high order method of regula falsi type for computing a root of an equation," BIT, 13, 253-264.
+
+Anastasiou, K., and Chan, C.T. (1997). "Solution of the 2d shallow water equations using the finite volume method on unstructured triangular meshes," International Journal for Numerical Methods in Fluids, 24, 1225-1245.
+
+Barth, T.J., and Jespersen, D.J. (1989). "The design and application of upwind schemes on unstructured meshes," AIAA Paper 89-0366.
+
+Begnudelli, L., and Sanders, B.F. (2006). "Unstructured grid finite-volume algorithm for shallow-water flow and scalar transport with wetting and drying," Journal of Hydraulic Engineering, 132(4), 371-384.
+
+Blazek, J., (2001). Computational fluid dynamics: principles and applications. Elsevier, Oxford, UK.
+
+Bradford, S., and Sanders, B. (2002). "Finite-volume model for shallow-water flooding of arbitrary topography," Journal of Hydraulic Engineering, 128(3), 289-298.
+
+Brufau, P., and Garcia-Navarro, P. (2000). "Two-dimensional dam break flow simulation," International Journal for Numerical Methods in Fluids, 33, 35-57.
+
+Brufau, P., and Garcia-Navarro, P. (2003). "Unsteady free surface flow simulation over complex topography with a multidimensional upwind technique," Journal of Computational Physics, 186, 503-526.
+
+Brufau, P., Garcia-Navarro, P., and Vazquez-Cendon, M.E. (2004), "Zero mass error using unsteady wetting-drying conditions in shallow flows over dry irregular topography," International Journal for Numerical Methods in Fluids, 45, 1047-1082.
+
+Caraeni, D.A. (2000). Development of a multidimensional residual distribution solver for large eddy simulation of industrial flows. Doctoral thesis, Dept. of Heat and Power Engineering, Lundt Institute of Technology, Sweden.
+
+Coudiere, Y., Vila, J.P., and Villedieu, P. (1999). "Convergence rate of a finite volume scheme for a two-dimensional convection-diffusion problem," Mathematical Modelling and Numerical Analysis, 33(3), 493-516.
+
+Cockburn, B. (1998). "An introduction to the discontinuous galerkin method for convection dominated problems," Ch. 2 in "Advanced Numerical Approximation of Nonlinear Hyperbolic Equations," B. Cockburn, C. Johnson, C.-W. Shu, and E. Tadmor, Lecture Notes in Mathematics 1967, Springer-Verlag.
+
+Engeln-Mullges, G., and Uhlig, F. (1996). Numerical algorithms with Fortran, Springer-Verlag.
+
+Gottlieb, S., Shu, C.-W., and Tadmor, E. (2001). "Strong stability-preserving high-order time discretization methods," SIAM Review, 43(1), 89-112.
+
+Holmes, D.G., and Connell, S.D. (1989). "Solution of the 2d Navier-Stokes equations on unstructured adaptive grids," AIAA Paper 89-1932.
+
+Jameson, A., and Mavriplis, D. (1986). "Finite volume solution of the two-dimensional Euler equations on a regular triangular mesh,", AIAA Journal, 24(4), 611-618.
+
+Jawahar, P., and Kamath, H. (2000). "A high-resolution procedure for Euler and Navier-Stokes computations on unstructured grids," Journal of Computational Physics, 164, 165-203.
+
+Kuiry, S.N., Pramanik, K., and Sen, D., (2008). "Finite volume model for shallow water equations with improved treatment of source terms," Journal of Hydraulic Engineering, 134(2), 231-242.
+
+Lai, J.-S., Lin, G.-F., and Guo, W.-D. (2005). "An upstream flux-splitting finite-volume scheme for 2D shallow water equations," International Journal for Numerical Methods in Fluids, 48, 1149–1174.
+
+Liang, D., Lin, B., and Falconer, R.A. (2007). "Simulation of rapidly varying flow using an efficient TVD-MacCormak scheme," International Journal for Numerical Methods in Fluids, 53, 811-826.
+
+Liang, Q., Zang, J., Borthwick, A., and Taylor, P. (2007). "Shallow flow simulation on dynamically adaptive cut cell quadtree grids," International Journal for Numerical Methods in Fluids, 53, 1777-1799.
+
+Maisano, G., Micheletti, S., Perotto, S., and Bottasso, C.L. (2006). "On some new recovery based a posteriori error estimators," Computer Methods in Applied Mechanics and Engineering, 195(37-40), 4794-4815
+
+Mavriplis, D.J. (2003), "Revisiting the least-squares procedure for gradient reconstruction on unstructured meshes," AIAA Paper 2003-3986.
+
+Murillo, J., Burguete, J., Brufau, P., and Garcia-Navarro, P. (2006). "Discretization of the friction term in the shallow water equations," in River Flow 2006 (Ferreira, Alves, Leal, and Cardoso, eds.), Taylor and Francis, London.
+
+Sleigh, P.A., Gaskell, P.H., Berzins, M., and Wright, N.G. (1998). "An unstructured finite-volume algorithm for predicting flow in rivers and estuaries," Computers & Fluids, 27(4), 479-508.
+
+Tisdale, T.S., Scarlatos, P.D., and Hamrick, J.M. (1998). "Streamline upwind finite-element method for overland flow," Journal of Hydraulic Engineering, 124(4), 350-357.
+
+Titov, V.V., and Synolakis, C.E. (1998). "Numerical modeling of tidal wave runup," Journal of Waterway, Port, Coastal, and Ocean Engineering, 124(4), 157-171.
+
+Toro, E.F., (2001). Shock-cpaturing methods for free-surface shallow flows. John Wiley & Sons, Ltd., Chichester, England.
+
+Tsihrintzis, V.A. (2001). Discussion of Wu et al. (1999), Journal of Hydraulic Engineering, 127(3), 241-244.
+
+Wu, F.-C., Shen, H.W., and Chou, Y.-J. (1999). "Variation of roughness for unsubmerged and submerged vegetation," Journal of Hydraulic ENgineering, 125(9), 934-942.
+
+Yang, C.T. (1996). Sediment transport, theory and practice. McGraw-Hill Co.
+
+Zienkiewicz, O.C., and Zhu, J.Z. (1987). "A simple error estimator and adaptive procedure for practical engineering analysis," International Journal for Numerical Methods in Engineering, 24, 337–357.

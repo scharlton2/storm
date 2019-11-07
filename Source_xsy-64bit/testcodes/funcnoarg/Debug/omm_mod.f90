@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Wed Oct 15 14:27:51 2008
+        MODULE OMM_mod
+          INTERFACE 
+            FUNCTION OMM RESULT(OMM_0)
+              INTEGER(KIND=4) :: OMM_0
+            END FUNCTION OMM
+          END INTERFACE 
+        END MODULE OMM_mod

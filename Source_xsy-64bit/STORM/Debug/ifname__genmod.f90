@@ -1,0 +1,11 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon Apr 07 13:43:14 2014
+        MODULE IFNAME__genmod
+          INTERFACE 
+            SUBROUTINE IFNAME(V,VMAX,FN,FNOUT)
+              INTEGER(KIND=4), INTENT(IN) :: V
+              INTEGER(KIND=4), INTENT(IN) :: VMAX
+              CHARACTER(*), INTENT(IN) :: FN
+              CHARACTER(*), INTENT(OUT) :: FNOUT
+            END SUBROUTINE IFNAME
+          END INTERFACE 
+        END MODULE IFNAME__genmod

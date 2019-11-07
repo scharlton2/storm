@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="9.10" ProjectIdGuid="{427C09BC-B448-4C6C-B4E9-746F6308870F}">
+	<Platforms>
+		<Platform Name="Win32"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" OptimizeForProcessor="procOptimizeBlended" Interfaces="true" Diagnostics="diagnosticsShowAll" WarnInterfaces="true" CallingConvention="callConventionCVF" Traceback="true" NullPointerCheck="true" BoundsCheck="true" UninitializedVariablesCheck="true" DescriptorDataTypeCheck="true" DescriptorDataSizeCheck="true" ArgTempCreatedCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
+				<Tool Name="VFLinkerTool" OutputFile="$(OUTDIR)\SToRM.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" AdditionalLibraryDirectories="$(OUTDIR)\..\..\Header Files;$(OUTDIR)\..\..\Lib" GenerateDebugInformation="true" SubSystem="subSystemConsole" AdditionalDependencies="cgnslibd.lib"/>
+				<Tool Name="VFResourceCompilerTool" AdditionalIncludeDirectories="E:\Projects\MD_SWMS\SToRMv0.3-xsk\Header Files;E:\Projects\MD_SWMS\SToRMv0.3-xsk\Lib"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool" CommandLine="copy $(OUTDIR)\storm.exe ..\..\bin"/></Configuration>
+		<Configuration Name="Release|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" Optimization="optimizeFull" OptimizeForProcessor="procOptimizePentiumProThruIII" CallingConvention="callConventionCVF" RuntimeLibrary="rtMultiThreadedDLL" UseWindowsLibs="true" UsePortlib="true"/>
+				<Tool Name="VFLinkerTool" OutputFile="$(OUTDIR)/Storm.exe" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" AdditionalLibraryDirectories="$(OUTDIR)\..\..\Header Files;$(OUTDIR)\..\..\Lib" SubSystem="subSystemConsole" AdditionalDependencies="cgnslib.lib"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool" CommandLine="copy $(OUTDIR)\storm.exe ..\..\bin"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Header Files" Filter="fi;fd">
+		<File RelativePath="..\Header Files\cgnslib_f.h"/>
+		<File RelativePath="..\Header Files\cgnswin_f.h"/></Filter>
+		<Filter Name="MD_SWMS Files">
+		<File RelativePath="..\MD_SWMS files\GeometryMod.F90"/>
+		<File RelativePath="..\MD_SWMS files\read_cgns.f90"/>
+		<File RelativePath="..\MD_SWMS files\read_cgns_options.f90"/>
+		<File RelativePath="..\MD_SWMS files\read_cgns_routines.F90"/>
+		<File RelativePath="..\MD_SWMS files\RivRoughnessMod.F90"/>
+		<File RelativePath="..\MD_SWMS files\RivVarTimeMod.f90"/>
+		<File RelativePath="..\MD_SWMS files\write_cgns.F90"/>
+		<File RelativePath="..\MD_SWMS files\write_cgns_routines.F90"/></Filter>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<File RelativePath="..\add_edge_to_array.f90"/>
+		<File RelativePath="..\adjust_bed_elevation.f90"/>
+		<File RelativePath="..\adjust_water_depth.f90"/>
+		<File RelativePath="..\adjustZb.f90"/>
+		<File RelativePath="..\afe_flux.f90"/>
+		<File RelativePath="..\alloc_err.f90"/>
+		<File RelativePath="..\bcs.f90"/>
+		<File RelativePath="..\bed_slope.f90"/>
+		<File RelativePath="..\bed_slope_DFB.f90"/>
+		<File RelativePath="..\bed_slope_ETA.f90"/>
+		<File RelativePath="..\bed_slope_STD.f90"/>
+		<File RelativePath="..\bed_slope_VTX.f90"/>
+		<File RelativePath="..\byebye.f90"/>
+		<File RelativePath="..\c2v_setup.f90"/>
+		<File RelativePath="..\ccstring.f90"/>
+		<File RelativePath="..\cde_t2t.f90"/>
+		<File RelativePath="..\cell_centered.f90"/>
+		<File RelativePath="..\cell_grads.f90"/>
+		<File RelativePath="..\cell_velocity.f90"/>
+		<File RelativePath="..\centered.f90"/>
+		<File RelativePath="..\constants.f90"/>
+		<File RelativePath="..\crit_outflow.f90"/>
+		<File RelativePath="..\ctr2vtx.f90"/>
+		<File RelativePath="..\dataprepFVT.f90"/>
+		<File RelativePath="..\dataprepRDS.f90"/>
+		<File RelativePath="..\deltat.f90"/>
+		<File RelativePath="..\deltatFVT.f90"/>
+		<File RelativePath="..\dep_vars.f90"/>
+		<File RelativePath="..\dirichlet.f90"/>
+		<File RelativePath="..\distribution.f90"/>
+		<File RelativePath="..\drynwet.f90"/>
+		<File RelativePath="..\eddy_viscosity.f90"/>
+		<File RelativePath="..\edge_copy.f90"/>
+		<File RelativePath="..\edge_in_array.f90"/>
+		<File RelativePath="..\edge_in_element.f90"/>
+		<File RelativePath="..\edge_normals.f90"/>
+		<File RelativePath="..\elemnt_db.f90"/>
+		<File RelativePath="..\enforce_bcs.f90"/>
+		<File RelativePath="..\equals.f90"/>
+		<File RelativePath="..\err_opts.f90"/>
+		<File RelativePath="..\error_est.f90"/>
+		<File RelativePath="..\errore.f90"/>
+		<File RelativePath="..\fe_flux.f90"/>
+		<File RelativePath="..\find_dry_cells.f90"/>
+		<File RelativePath="..\find_edges.f90"/>
+		<File RelativePath="..\flux_ac.f90"/>
+		<File RelativePath="..\flux_bgnvc.f90"/>
+		<File RelativePath="..\flux_HLL.f90"/>
+		<File RelativePath="..\flux_rusanov.f90"/>
+		<File RelativePath="..\fnames.f90"/>
+		<File RelativePath="..\fric_slope.f90"/>
+		<File RelativePath="..\fric_terms.f90"/>
+		<File RelativePath="..\fvsources.f90"/>
+		<File RelativePath="..\geometry.f90"/>
+		<File RelativePath="..\get_extension.f90"/>
+		<File RelativePath="..\get_iounit.f90"/>
+		<File RelativePath="..\get_time_bcs.f90"/>
+		<File RelativePath="..\grad.f90"/>
+		<File RelativePath="..\gradhordr.f90"/>
+		<File RelativePath="..\hdlsq_grad_array.f90"/>
+		<File RelativePath="..\hdlsq_grad_array4h.f90"/>
+		<File RelativePath="..\hdlsq_setup.f90"/>
+		<File RelativePath="..\header.f90"/>
+		<File RelativePath="..\heffective.f90"/>
+		<File RelativePath="..\hequivalent.f90"/>
+		<File RelativePath="..\hgradfix.f90"/>
+		<File RelativePath="..\ibc_arrays.f90"/>
+		<File RelativePath="..\ifname.f90"/>
+		<File RelativePath="..\in_array.f90"/>
+		<File RelativePath="..\inflowQbyH.f90"/>
+		<File RelativePath="..\inflowQbyH2.f90"/>
+		<File RelativePath="..\initialize_options.f90"/>
+		<File RelativePath="..\integral_md.f90"/>
+		<File RelativePath="..\integral_Ut.f90"/>
+		<File RelativePath="..\invert.f90"/>
+		<File RelativePath="..\invert_edge_dirs.f90"/>
+		<File RelativePath="..\invisc_fluxes.f90"/>
+		<File RelativePath="..\io.f90"/>
+		<File RelativePath="..\ioflow.f90"/>
+		<File RelativePath="..\is_edge.f90"/>
+		<File RelativePath="..\jacobian.f90"/>
+		<File RelativePath="..\kinematicwave2D.f90"/>
+		<File RelativePath="..\kinemwave_setup.f90"/>
+		<File RelativePath="..\kmatrices.f90"/>
+		<File RelativePath="..\lda.f90"/>
+		<File RelativePath="..\limiterBJ.f90"/>
+		<File RelativePath="..\local_edge.f90"/>
+		<File RelativePath="..\lsq_grad_array.f90"/>
+		<File RelativePath="..\lsq_grad_array4h.f90"/>
+		<File RelativePath="..\lsq_gradient.f90"/>
+		<File RelativePath="..\lsq_setup.f90"/>
+		<File RelativePath="..\mem_add.f90"/>
+		<File RelativePath="..\mem_call.f90"/>
+		<File RelativePath="..\memory.f90"/>
+		<File RelativePath="..\mesh_in.f90"/>
+		<File RelativePath="..\mesh_out.f90"/>
+		<File RelativePath="..\narrow.f90"/>
+		<File RelativePath="..\neighbor.f90"/>
+		<File RelativePath="..\node_db.f90"/>
+		<File RelativePath="..\node_in_bdry.f90"/>
+		<File RelativePath="..\node_in_triang.f90"/>
+		<File RelativePath="..\nonlinearb.f90"/>
+		<File RelativePath="..\npoints.f90"/>
+		<File RelativePath="..\options.f90"/>
+		<File RelativePath="..\outflowbyH.f90"/>
+		<File RelativePath="..\outflowbyH2.f90"/>
+		<File RelativePath="..\outflowbyH3.f90"/>
+		<File RelativePath="..\output_data.f90"/>
+		<File RelativePath="..\output_dataV.f90"/>
+		<File RelativePath="..\overdraft.f90"/>
+		<File RelativePath="..\parameters.f90"/>
+		<File RelativePath="..\part_dry.f90"/>
+		<File RelativePath="..\phisubt.f90"/>
+		<File RelativePath="..\positivity_vtx.f90"/>
+		<File RelativePath="..\probefileh.f90"/>
+		<File RelativePath="..\probefileo.f90"/>
+		<File RelativePath="..\pto_in_edge.f90"/>
+		<File RelativePath="..\query.f90"/>
+		<File RelativePath="..\read_data.f90"/>
+		<File RelativePath="..\read_mfa.f90"/>
+		<File RelativePath="..\read_options.f90"/>
+		<File RelativePath="..\readline.f90"/>
+		<File RelativePath="..\readp.f90"/>
+		<File RelativePath="..\residuals.f90"/>
+		<File RelativePath="..\RKparams.f90"/>
+		<File RelativePath="..\rvegdata.f90"/>
+		<File RelativePath="..\select_out.f90"/>
+		<File RelativePath="..\skin_friction.f90"/>
+		<File RelativePath="..\solver.f90"/>
+		<File RelativePath="..\solverFVT.f90"/>
+		<File RelativePath="..\solverRDS.f90"/>
+		<File RelativePath="..\spit_out.f90"/>
+		<File RelativePath="..\storm.f90"/>
+		<File RelativePath="..\strip_ext.f90"/>
+		<File RelativePath="..\t_areas.f90"/>
+		<File RelativePath="..\tecplot.f90"/>
+		<File RelativePath="..\tecplot_read.f90"/>
+		<File RelativePath="..\tecplot_write.f90"/>
+		<File RelativePath="..\to_upper.f90"/>
+		<File RelativePath="..\vbc_arrays.f90"/>
+		<File RelativePath="..\vbc_by_h.f90"/>
+		<File RelativePath="..\visc_fluxes.f90"/>
+		<File RelativePath="..\visc_terms.f90"/>
+		<File RelativePath="..\viscosity.f90"/>
+		<File RelativePath="..\vtx2ctr.f90"/>
+		<File RelativePath="..\walls.f90"/>
+		<File RelativePath="..\wenslp2_fluxes.f90"/>
+		<File RelativePath="..\wenslp3_fluxes.f90"/>
+		<File RelativePath="..\wenslp_fluxes.f90"/>
+		<File RelativePath="..\weslp2_fluxes.f90"/>
+		<File RelativePath="..\weslp_fluxes.f90"/>
+		<File RelativePath="..\wetdryfix.f90"/>
+		<File RelativePath="..\wetdryvfix.f90"/>
+		<File RelativePath="..\windforcing.f90"/>
+		<File RelativePath="..\zeta_bcs.f90"/></Filter></Files>
+	<Globals/></VisualStudioProject>

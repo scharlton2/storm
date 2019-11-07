@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Fri Jan 23 13:46:46 2009
+        MODULE BCS_mod
+          INTERFACE 
+            SUBROUTINE BCS(FUNIT)
+              INTEGER(KIND=4), INTENT(IN) :: FUNIT
+            END SUBROUTINE BCS
+          END INTERFACE 
+        END MODULE BCS_mod

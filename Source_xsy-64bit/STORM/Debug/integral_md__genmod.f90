@@ -1,0 +1,11 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Fri Aug 22 11:39:45 2014
+        MODULE INTEGRAL_MD__genmod
+          INTERFACE 
+            FUNCTION INTEGRAL_MD(NODE,PHI,NDIM)
+              INTEGER(KIND=4), INTENT(IN) :: NDIM
+              INTEGER(KIND=4), INTENT(IN) :: NODE
+              REAL(KIND=8), INTENT(IN) :: PHI(NDIM)
+              REAL(KIND=8) :: INTEGRAL_MD
+            END FUNCTION INTEGRAL_MD
+          END INTERFACE 
+        END MODULE INTEGRAL_MD__genmod

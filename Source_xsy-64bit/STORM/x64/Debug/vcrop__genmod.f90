@@ -1,0 +1,9 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:47 2018
+        MODULE VCROP__genmod
+          INTERFACE 
+            SUBROUTINE VCROP(VCLIP,VCEILING)
+              LOGICAL(KIND=4), INTENT(IN) :: VCLIP
+              REAL(KIND=8), INTENT(IN) :: VCEILING
+            END SUBROUTINE VCROP
+          END INTERFACE 
+        END MODULE VCROP__genmod

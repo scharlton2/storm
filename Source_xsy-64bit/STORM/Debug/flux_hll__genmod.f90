@@ -1,0 +1,18 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Fri Aug 22 11:39:25 2014
+        MODULE FLUX_HLL__genmod
+          INTERFACE 
+            SUBROUTINE FLUX_HLL(CELLEDGE,HLEFT,ULEFT,VLEFT,HRIGHT,URIGHT&
+     &,VRIGHT,H0,FLUX)
+              USE PARAMETERS
+              TYPE (EDGE), INTENT(IN) :: CELLEDGE
+              REAL(KIND=8), INTENT(IN) :: HLEFT
+              REAL(KIND=8), INTENT(IN) :: ULEFT
+              REAL(KIND=8), INTENT(IN) :: VLEFT
+              REAL(KIND=8), INTENT(IN) :: HRIGHT
+              REAL(KIND=8), INTENT(IN) :: URIGHT
+              REAL(KIND=8), INTENT(IN) :: VRIGHT
+              REAL(KIND=8), INTENT(IN) :: H0
+              REAL(KIND=8), INTENT(OUT) :: FLUX(3)
+            END SUBROUTINE FLUX_HLL
+          END INTERFACE 
+        END MODULE FLUX_HLL__genmod

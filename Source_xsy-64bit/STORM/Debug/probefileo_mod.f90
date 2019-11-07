@@ -1,0 +1,12 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon Feb 02 12:45:40 2009
+        MODULE PROBEFILEO_mod
+          INTERFACE 
+            SUBROUTINE PROBEFILEO(T,NN,HH,UU,VV)
+              INTEGER(KIND=4), INTENT(IN) :: NN
+              REAL(KIND=8) :: T
+              REAL(KIND=8), INTENT(IN) :: HH(NN)
+              REAL(KIND=8), INTENT(IN) :: UU(NN)
+              REAL(KIND=8), INTENT(IN) :: VV(NN)
+            END SUBROUTINE PROBEFILEO
+          END INTERFACE 
+        END MODULE PROBEFILEO_mod

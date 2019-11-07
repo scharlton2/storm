@@ -1,0 +1,15 @@
+
+
+HOW TO IMPLEMENT A NEW OPTION IN STORM
+======================================
+
+
+1. Define the new variable in options.f90;
+
+2. Set the default values in initialize_options.f90;
+
+3. Read-in the options in read_options.f90;
+
+4. Write the appropriate data in header.f90; and
+
+5. Perform the appropriate actions.

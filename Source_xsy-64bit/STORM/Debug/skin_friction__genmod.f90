@@ -1,0 +1,16 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Fri Aug 22 11:39:58 2014
+        MODULE SKIN_FRICTION__genmod
+          INTERFACE 
+            FUNCTION SKIN_FRICTION(FTYPE,FFACTOR,DEPTH,VEL,NU,VEGC1,    &
+     &VEGC2)
+              INTEGER(KIND=4), INTENT(IN) :: FTYPE
+              REAL(KIND=8), INTENT(IN) :: FFACTOR
+              REAL(KIND=8), INTENT(IN) :: DEPTH
+              REAL(KIND=8), INTENT(IN) :: VEL
+              REAL(KIND=8), INTENT(IN) :: NU
+              REAL(KIND=8), INTENT(IN) :: VEGC1
+              REAL(KIND=8), INTENT(IN) :: VEGC2
+              REAL(KIND=8) :: SKIN_FRICTION
+            END FUNCTION SKIN_FRICTION
+          END INTERFACE 
+        END MODULE SKIN_FRICTION__genmod

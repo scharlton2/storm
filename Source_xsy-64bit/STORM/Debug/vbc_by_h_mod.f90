@@ -1,0 +1,10 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Feb 03 18:02:51 2009
+        MODULE VBC_BY_H_mod
+          INTERFACE 
+            SUBROUTINE VBC_BY_H(WDEPTH,NDIM,Q)
+              INTEGER(KIND=4), INTENT(IN) :: NDIM
+              REAL(KIND=8), INTENT(IN) :: WDEPTH(NDIM)
+              REAL(KIND=8), INTENT(OUT) :: Q
+            END SUBROUTINE VBC_BY_H
+          END INTERFACE 
+        END MODULE VBC_BY_H_mod

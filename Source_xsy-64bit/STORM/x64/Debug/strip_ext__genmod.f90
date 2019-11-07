@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:02 2018
+        MODULE STRIP_EXT__genmod
+          INTERFACE 
+            SUBROUTINE STRIP_EXT(FN)
+              CHARACTER(*), INTENT(INOUT) :: FN
+            END SUBROUTINE STRIP_EXT
+          END INTERFACE 
+        END MODULE STRIP_EXT__genmod

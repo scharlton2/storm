@@ -1,0 +1,10 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Thu Jun 01 12:40:18 2017
+        MODULE EDGE_IN_ELEMENT__genmod
+          INTERFACE 
+            FUNCTION EDGE_IN_ELEMENT(E)
+              USE PARAMETERS
+              TYPE (EDGE), INTENT(IN) :: E
+              INTEGER(KIND=4) :: EDGE_IN_ELEMENT
+            END FUNCTION EDGE_IN_ELEMENT
+          END INTERFACE 
+        END MODULE EDGE_IN_ELEMENT__genmod

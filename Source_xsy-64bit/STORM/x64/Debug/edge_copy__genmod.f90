@@ -1,0 +1,10 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:13:03 2018
+        MODULE EDGE_COPY__genmod
+          INTERFACE 
+            SUBROUTINE EDGE_COPY(IN_EDGE,OUT_EDGE)
+              USE PARAMETERS
+              TYPE (EDGE), INTENT(IN) :: IN_EDGE
+              TYPE (EDGE), INTENT(OUT) :: OUT_EDGE
+            END SUBROUTINE EDGE_COPY
+          END INTERFACE 
+        END MODULE EDGE_COPY__genmod

@@ -1,0 +1,11 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon Apr 07 13:43:36 2014
+        MODULE NODE_IN_BDRY__genmod
+          INTERFACE 
+            FUNCTION NODE_IN_BDRY(PTO,E1,E2)
+              INTEGER(KIND=4), INTENT(IN) :: PTO
+              INTEGER(KIND=4), INTENT(OUT) :: E1
+              INTEGER(KIND=4), INTENT(OUT) :: E2
+              LOGICAL(KIND=4) :: NODE_IN_BDRY
+            END FUNCTION NODE_IN_BDRY
+          END INTERFACE 
+        END MODULE NODE_IN_BDRY__genmod

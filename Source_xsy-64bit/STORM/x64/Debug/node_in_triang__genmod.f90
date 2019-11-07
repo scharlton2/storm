@@ -1,0 +1,11 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:51 2018
+        MODULE NODE_IN_TRIANG__genmod
+          INTERFACE 
+            FUNCTION NODE_IN_TRIANG(N,T)
+              USE PARAMETERS
+              INTEGER(KIND=4), INTENT(IN) :: N
+              TYPE (TRIANGLE), INTENT(IN) :: T
+              LOGICAL(KIND=4) :: NODE_IN_TRIANG
+            END FUNCTION NODE_IN_TRIANG
+          END INTERFACE 
+        END MODULE NODE_IN_TRIANG__genmod

@@ -1,0 +1,12 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon Apr 07 13:43:44 2014
+        MODULE HOT_START_CGNS__genmod
+          INTERFACE 
+            SUBROUTINE HOT_START_CGNS(CGNSFILE,N,H,U,V)
+              INTEGER(KIND=4), INTENT(IN) :: N
+              CHARACTER(*), INTENT(IN) :: CGNSFILE
+              REAL(KIND=8), INTENT(OUT) :: H(N)
+              REAL(KIND=8), INTENT(OUT) :: U(N)
+              REAL(KIND=8), INTENT(OUT) :: V(N)
+            END SUBROUTINE HOT_START_CGNS
+          END INTERFACE 
+        END MODULE HOT_START_CGNS__genmod

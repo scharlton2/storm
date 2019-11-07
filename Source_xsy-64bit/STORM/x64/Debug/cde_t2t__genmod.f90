@@ -1,0 +1,11 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:11 2018
+        MODULE CDE_T2T__genmod
+          INTERFACE 
+            SUBROUTINE CDE_T2T(T2TW,I,DIM1,DIM2)
+              INTEGER(KIND=4), INTENT(IN) :: DIM2
+              INTEGER(KIND=4), INTENT(IN) :: DIM1
+              INTEGER(KIND=4), INTENT(INOUT) :: T2TW(DIM1,DIM2)
+              INTEGER(KIND=4), INTENT(IN) :: I
+            END SUBROUTINE CDE_T2T
+          END INTERFACE 
+        END MODULE CDE_T2T__genmod

@@ -1,0 +1,9 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Thu Jun 01 12:41:34 2017
+        MODULE TO_UPPER__genmod
+          INTERFACE 
+            FUNCTION TO_UPPER(CH)
+              CHARACTER(LEN=1), INTENT(IN) :: CH
+              CHARACTER(LEN=1) :: TO_UPPER
+            END FUNCTION TO_UPPER
+          END INTERFACE 
+        END MODULE TO_UPPER__genmod

@@ -1,0 +1,9 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Thu Jun 01 12:41:34 2017
+        MODULE READP__genmod
+          INTERFACE 
+            FUNCTION READP(STRING)
+              CHARACTER(*), INTENT(INOUT) :: STRING
+              INTEGER(KIND=4) :: READP
+            END FUNCTION READP
+          END INTERFACE 
+        END MODULE READP__genmod

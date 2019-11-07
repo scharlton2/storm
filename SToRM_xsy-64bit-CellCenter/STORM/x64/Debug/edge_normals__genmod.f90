@@ -1,0 +1,12 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Thu Jun 01 12:40:13 2017
+        MODULE EDGE_NORMALS__genmod
+          INTERFACE 
+            SUBROUTINE EDGE_NORMALS(SIDE,NSIDE,PTO,NPTO)
+              USE PARAMETERS
+              INTEGER(KIND=4), INTENT(IN) :: NPTO
+              INTEGER(KIND=4), INTENT(IN) :: NSIDE
+              TYPE (EDGE) :: SIDE(NSIDE)
+              TYPE (POINT) :: PTO(NPTO)
+            END SUBROUTINE EDGE_NORMALS
+          END INTERFACE 
+        END MODULE EDGE_NORMALS__genmod

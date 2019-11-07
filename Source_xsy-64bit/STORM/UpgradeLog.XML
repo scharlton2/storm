@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SToRM">
+</Property><Property Name="Solution File" Value="D:\Projects\STORM\Source_xsr\STORM\SToRM.sln">
+</Property><Property Name="Date" Value="Sunday, February 27, 2011">
+</Property><Property Name="Time" Value="19:46 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="SToRM.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="SToRM.sln" Description="Converted">
+</Event></UpgradeLog>

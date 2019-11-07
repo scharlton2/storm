@@ -1,0 +1,17 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:22 2018
+        MODULE FLUX_BGNVC__genmod
+          INTERFACE 
+            SUBROUTINE FLUX_BGNVC(CELLEDGE,HLEFT,ULEFT,VLEFT,HRIGHT,    &
+     &URIGHT,VRIGHT,FLUX)
+              USE PARAMETERS
+              TYPE (EDGE), INTENT(IN) :: CELLEDGE
+              REAL(KIND=8), INTENT(IN) :: HLEFT
+              REAL(KIND=8), INTENT(IN) :: ULEFT
+              REAL(KIND=8), INTENT(IN) :: VLEFT
+              REAL(KIND=8), INTENT(IN) :: HRIGHT
+              REAL(KIND=8), INTENT(IN) :: URIGHT
+              REAL(KIND=8), INTENT(IN) :: VRIGHT
+              REAL(KIND=8), INTENT(OUT) :: FLUX(3)
+            END SUBROUTINE FLUX_BGNVC
+          END INTERFACE 
+        END MODULE FLUX_BGNVC__genmod

@@ -1,0 +1,12 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon Apr 07 13:43:48 2014
+        MODULE EDGE_IN_ARRAY__genmod
+          INTERFACE 
+            FUNCTION EDGE_IN_ARRAY(EDG,EDGES_ARRAY,N)
+              USE PARAMETERS
+              INTEGER(KIND=4), INTENT(IN) :: N
+              TYPE (EDGE), INTENT(IN) :: EDG
+              TYPE (EDGE), INTENT(IN) :: EDGES_ARRAY(N+1)
+              LOGICAL(KIND=4) :: EDGE_IN_ARRAY
+            END FUNCTION EDGE_IN_ARRAY
+          END INTERFACE 
+        END MODULE EDGE_IN_ARRAY__genmod

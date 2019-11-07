@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Thu Jun 01 12:39:45 2017
+        MODULE ALLOC_ERR__genmod
+          INTERFACE 
+            SUBROUTINE ALLOC_ERR(I)
+              INTEGER(KIND=4), INTENT(IN) :: I
+            END SUBROUTINE ALLOC_ERR
+          END INTERFACE 
+        END MODULE ALLOC_ERR__genmod

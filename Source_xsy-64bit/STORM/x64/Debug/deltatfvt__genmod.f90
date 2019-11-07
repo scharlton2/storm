@@ -1,0 +1,10 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:19 2018
+        MODULE DELTATFVT__genmod
+          INTERFACE 
+            FUNCTION DELTATFVT(CRTYPE,CFL)
+              INTEGER(KIND=4), INTENT(IN) :: CRTYPE
+              REAL(KIND=8), INTENT(IN) :: CFL
+              REAL(KIND=8) :: DELTATFVT
+            END FUNCTION DELTATFVT
+          END INTERFACE 
+        END MODULE DELTATFVT__genmod

@@ -1,0 +1,10 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Fri Jan 23 13:46:45 2009
+        MODULE IN_ARRAY_mod
+          INTERFACE 
+            FUNCTION IN_ARRAY(I,A) RESULT(IN_ARRAY_0)
+              INTEGER(KIND=4), INTENT(IN) :: I
+              INTEGER(KIND=4), INTENT(IN) :: A(:)
+              LOGICAL(KIND=4) :: IN_ARRAY_0
+            END FUNCTION IN_ARRAY
+          END INTERFACE 
+        END MODULE IN_ARRAY_mod

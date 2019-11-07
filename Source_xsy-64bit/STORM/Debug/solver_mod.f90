@@ -1,0 +1,12 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Mon Feb 02 12:45:40 2009
+        MODULE SOLVER_mod
+          INTERFACE 
+            SUBROUTINE SOLVER(ITER,TTIME,RMAX,FN,TITLE)
+              INTEGER(KIND=4), INTENT(OUT) :: ITER
+              REAL(KIND=8), INTENT(OUT) :: TTIME
+              REAL(KIND=8), INTENT(OUT) :: RMAX
+              CHARACTER(*), INTENT(IN) :: FN
+              CHARACTER(*), INTENT(IN) :: TITLE
+            END SUBROUTINE SOLVER
+          END INTERFACE 
+        END MODULE SOLVER_mod

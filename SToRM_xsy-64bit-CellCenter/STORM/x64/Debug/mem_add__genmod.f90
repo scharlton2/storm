@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Thu Jun 01 12:40:48 2017
+        MODULE MEM_ADD__genmod
+          INTERFACE 
+            SUBROUTINE MEM_ADD(M)
+              INTEGER(KIND=4), INTENT(IN) :: M
+            END SUBROUTINE MEM_ADD
+          END INTERFACE 
+        END MODULE MEM_ADD__genmod

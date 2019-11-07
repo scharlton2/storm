@@ -1,0 +1,8 @@
+        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:17 2018
+        MODULE BYEBYE__genmod
+          INTERFACE 
+            SUBROUTINE BYEBYE(ERROR_MSG)
+              CHARACTER(*), INTENT(IN) :: ERROR_MSG
+            END SUBROUTINE BYEBYE
+          END INTERFACE 
+        END MODULE BYEBYE__genmod
