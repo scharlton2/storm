@@ -1,8 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:27 2018
-        MODULE MEM_CALL__genmod
-          INTERFACE 
-            FUNCTION MEM_CALL
-              INTEGER(KIND=4) :: MEM_CALL
-            END FUNCTION MEM_CALL
-          END INTERFACE 
-        END MODULE MEM_CALL__genmod

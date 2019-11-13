@@ -1,7 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:18 2018
-        MODULE AFE_FLUX__genmod
-          INTERFACE 
-            SUBROUTINE AFE_FLUX
-            END SUBROUTINE AFE_FLUX
-          END INTERFACE 
-        END MODULE AFE_FLUX__genmod

@@ -1,9 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:59 2018
-        MODULE PHISUBT__genmod
-          INTERFACE 
-            SUBROUTINE PHISUBT(PHIT)
-              USE GEOMETRY
-              REAL(KIND=8), INTENT(OUT) :: PHIT(N_ELEMS,3)
-            END SUBROUTINE PHISUBT
-          END INTERFACE 
-        END MODULE PHISUBT__genmod

@@ -1,9 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:06 2018
-        MODULE ERR_OPTS__genmod
-          INTERFACE 
-            SUBROUTINE ERR_OPTS(STRING,LINENO)
-              CHARACTER(*) :: STRING
-              INTEGER(KIND=4), INTENT(IN) :: LINENO
-            END SUBROUTINE ERR_OPTS
-          END INTERFACE 
-        END MODULE ERR_OPTS__genmod

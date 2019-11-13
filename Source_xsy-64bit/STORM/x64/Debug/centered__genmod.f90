@@ -1,9 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:22 2018
-        MODULE CENTERED__genmod
-          INTERFACE 
-            SUBROUTINE CENTERED(N,R)
-              INTEGER(KIND=4), INTENT(IN) :: N
-              REAL(KIND=8), INTENT(OUT) :: R(3,3)
-            END SUBROUTINE CENTERED
-          END INTERFACE 
-        END MODULE CENTERED__genmod

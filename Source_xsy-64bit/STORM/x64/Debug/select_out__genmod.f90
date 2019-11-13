@@ -1,9 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Tue Jun 19 14:12:18 2018
-        MODULE SELECT_OUT__genmod
-          INTERFACE 
-            FUNCTION SELECT_OUT(ITER)
-              INTEGER(KIND=4), INTENT(IN) :: ITER
-              LOGICAL(KIND=4) :: SELECT_OUT
-            END FUNCTION SELECT_OUT
-          END INTERFACE 
-        END MODULE SELECT_OUT__genmod
