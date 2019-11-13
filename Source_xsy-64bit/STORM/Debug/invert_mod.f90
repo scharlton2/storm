@@ -1,9 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Mon Feb 02 12:45:37 2009
-        MODULE INVERT_mod
-          INTERFACE 
-            FUNCTION INVERT(A) RESULT(INVERT_0)
-              REAL(KIND=8), INTENT(INOUT) :: A(3,3)
-              LOGICAL(KIND=4) :: INVERT_0
-            END FUNCTION INVERT
-          END INTERFACE 
-        END MODULE INVERT_mod

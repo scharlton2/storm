@@ -1,8 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Mon Apr 07 13:43:27 2014
-        MODULE WALLS__genmod
-          INTERFACE 
-            SUBROUTINE WALLS
-              USE GEOMETRY
-            END SUBROUTINE WALLS
-          END INTERFACE 
-        END MODULE WALLS__genmod

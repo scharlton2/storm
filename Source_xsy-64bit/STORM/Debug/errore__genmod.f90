@@ -1,7 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Mon Apr 07 13:43:24 2014
-        MODULE ERRORE__genmod
-          INTERFACE 
-            SUBROUTINE ERRORE
-            END SUBROUTINE ERRORE
-          END INTERFACE 
-        END MODULE ERRORE__genmod
