@@ -1,8 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Thu Jun 01 12:41:34 2017
-        MODULE FLOOD_CHAN__genmod
-          INTERFACE 
-            SUBROUTINE FLOOD_CHAN(T)
-              REAL(KIND=8) :: T
-            END SUBROUTINE FLOOD_CHAN
-          END INTERFACE 
-        END MODULE FLOOD_CHAN__genmod

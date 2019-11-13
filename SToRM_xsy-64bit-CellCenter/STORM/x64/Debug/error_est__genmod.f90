@@ -1,8 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Thu Jun 01 12:41:34 2017
-        MODULE ERROR_EST__genmod
-          INTERFACE 
-            SUBROUTINE ERROR_EST(ETYPE)
-              INTEGER(KIND=4) :: ETYPE
-            END SUBROUTINE ERROR_EST
-          END INTERFACE 
-        END MODULE ERROR_EST__genmod

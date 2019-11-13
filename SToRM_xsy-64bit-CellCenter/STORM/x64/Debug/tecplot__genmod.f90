@@ -1,8 +1,0 @@
-        !COMPILER-GENERATED INTERFACE MODULE: Thu Jun 01 12:40:35 2017
-        MODULE TECPLOT__genmod
-          INTERFACE 
-            SUBROUTINE TECPLOT(ID)
-              INTEGER(KIND=4), INTENT(IN) :: ID
-            END SUBROUTINE TECPLOT
-          END INTERFACE 
-        END MODULE TECPLOT__genmod
