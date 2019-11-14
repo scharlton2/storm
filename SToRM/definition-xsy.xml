@@ -9,8 +9,8 @@ homepage="http://wwwbrr.cr.usgs.gov/gstl/"
 executable="SToRM.exe"
 iterationtype="time"
 gridtype="unstructured2d"
-git:remote="git@code.usgs.gov:gstl/storm.git"
-git:sha1="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+git-remote="git@code.usgs.gov:gstl/storm.git"
+git-sha1="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 >
 
 <!-- Definitions for SToRM 0.3 track xsy
