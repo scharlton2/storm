@@ -2,13 +2,15 @@
 <SolverDefinition
 name="storm"
 caption="SToRM"
-version="0.4"
+version="0.4.1"
 copyright="None"
-release="2018.06.21"
+release="2019.11.13"
 homepage="http://wwwbrr.cr.usgs.gov/gstl/"
 executable="STORM.exe"
 iterationtype="time"
 gridtype="unstructured2d"
+git:remote="git@code.usgs.gov:gstl/storm.git"
+git:sha1=""
 >
 
 <!-- Definitions for SToRM 0.3 track xsy
