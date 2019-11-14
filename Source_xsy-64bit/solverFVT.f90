@@ -111,7 +111,7 @@ SUBROUTINE solverFVT(iter,ttime,rmax,fn,title)
 
   rough = cd
 
-  IF (cgns) CALL cg_iric_write_sol_time_f(stime,i)
+  !!!IF (cgns) CALL cg_iric_write_sol_time_f(stime,i)
 
 !-----------------------------------------------------------------------------!
 !                                                                             !
