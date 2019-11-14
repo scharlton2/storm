@@ -1,0 +1,6 @@
+*.pdb
+*.suo
+*.user
+*.u2d
+**/Debug
+**/Release
