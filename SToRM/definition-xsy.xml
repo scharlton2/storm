@@ -6,11 +6,11 @@ version="0.4.1"
 copyright="None"
 release="2019.11.13"
 homepage="http://wwwbrr.cr.usgs.gov/gstl/"
-executable="STORM.exe"
+executable="SToRM.exe"
 iterationtype="time"
 gridtype="unstructured2d"
 git:remote="git@code.usgs.gov:gstl/storm.git"
-git:sha1=""
+git:sha1="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 >
 
 <!-- Definitions for SToRM 0.3 track xsy
