@@ -26,9 +26,27 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    
+    - name: Debug before checkout with path
+      run: |
+        echo ${{github.workspace}}
+        echo ${{runner.workspace}}
+    
+    - name: Debug after checkout with path
+      run: |
+        echo ${{github.workspace}}
+        echo ${{runner.workspace}}
+        dir env:
+    
     - uses: actions/checkout@v2
       with:
         path: main
+    
+    - name: Debug after checkout with path
+      run: |
+        echo ${{github.workspace}}
+        echo ${{runner.workspace}}
+        dir env:
 
     - name: Cache install
       id: cache-install
