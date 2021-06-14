@@ -26,6 +26,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Cache install
+      id: cache-install
+      uses: actions/cache@v2
+      with:
+        path: ${{github.workspace}}/_build/INSTALL
+        key: ${{runner.os}}-install
+
     - name: Download latest iricsdk
       shell: pwsh
       run: |
@@ -44,6 +51,7 @@ jobs:
     
     - name: Install oneAPI Fortran
       shell: cmd
+      if: steps.cache-install.outputs.cache-hit != 'true'
       run: |
         curl -fSLo %WINDOWS_HPCKIT_FILE% %WINDOWS_HPCKIT_URL%
         start /b /wait %WINDOWS_HPCKIT_FILE% -s -x -f hpckit_extracted --log hpckit_extracted.log
@@ -52,8 +60,22 @@ jobs:
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -B ${{github.workspace}}/_build -DCMAKE_PREFIX_PATH=C:/iricdev/lib/install/iriclib-${{env.IRICLIB_VERSION}}/lib/cmake/iriclib
+      if: steps.cache-install.outputs.cache-hit != 'true'
+      run: cmake -B ${{github.workspace}}/_build -DCMAKE_PREFIX_PATH=C:/iricdev/lib/install/iriclib-${{env.IRICLIB_VERSION}}/lib/cmake/iriclib -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/_build/INSTALL
 
     - name: Build
       # Build your program with the given configuration
+      if: steps.cache-install.outputs.cache-hit != 'true'
       run: cmake --build ${{github.workspace}}/_build --config ${{env.BUILD_TYPE}}
+
+    # @todo
+    # - name: Test
+    #   working-directory: ${{github.workspace}}/build
+    #   # Execute tests defined by the CMake configuration.
+    #   # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
+    #   run: ctest -C ${{env.BUILD_TYPE}}
+
+    - name: Install
+      # Build your program with the given configuration
+      if: steps.cache-install.outputs.cache-hit != 'true'
+      run: cmake --build ${{github.workspace}}/_build --config ${{env.BUILD_TYPE}} --target install
