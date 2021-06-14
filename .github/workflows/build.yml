@@ -77,6 +77,18 @@ jobs:
     #   # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
     #   run: ctest -C ${{env.BUILD_TYPE}}
 
+    - name: Debug before
+      run: tree /A /F ..
+
+    - name: Checkout online_update repo
+      uses: actions/checkout@v2
+      with:
+        repository: scharlton2/online_update
+        path: online_update
+
+    - name: Debug after
+      run: tree /A /F ..
+
     - name: Install
       # Build your program with the given configuration
       if: steps.cache-install.outputs.cache-hit != 'true'
