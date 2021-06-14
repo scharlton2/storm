@@ -27,6 +27,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        path: main
 
     - name: Cache install
       id: cache-install
@@ -78,7 +80,7 @@ jobs:
     #   run: ctest -C ${{env.BUILD_TYPE}}
 
     - name: Debug before
-      run: tree /A /F ..
+      run: tree /A ..
 
     - name: Checkout online_update repo
       uses: actions/checkout@v2
@@ -87,7 +89,7 @@ jobs:
         path: online_update
 
     - name: Debug after
-      run: tree /A /F ..
+      run: tree /A ..
 
     - name: Install
       # Build your program with the given configuration
