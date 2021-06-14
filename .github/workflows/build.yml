@@ -2,7 +2,9 @@ name: build
 
 on:
   push:
-    branches: [ cgns ]
+    branches:
+      - cgns
+      - cgns-online
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
