@@ -199,6 +199,8 @@ target_link_libraries(storm iriclib::iriclib)
 
 install(TARGETS storm DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
-include(CTest)
+install(FILES SToRM/definition-xsy.xml DESTINATION "${CMAKE_INSTALL_BINDIR}" RENAME definition.xml)
 
-add_test(TestRun storm)
+# include(CTest)
+
+# add_test(TestRun storm)
