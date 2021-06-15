@@ -7,8 +7,13 @@ on:
       - cgns-online
 
 env:
+  # CMAKE directories
+  SOURCE_DIR: main
+  BUILD_DIR: build
+
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: RelWithDebInfo
+
   # github API url
   IRICLIB_API_URL: https://api.github.com/repos/scharlton2/iriclib    # @todo change to i-RIC/iriclib
   # oneAPI
@@ -26,22 +31,19 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    
+
     - name: Debug before checkout with path
       run: |
+        Get-Command cmake
+        Get-Command 7z
+        Get-Command curl
         echo ${{github.workspace}}
         echo ${{runner.workspace}}
-    
-    - name: Debug after checkout with path
-      run: |
-        echo ${{github.workspace}}
-        echo ${{runner.workspace}}
-        dir env:
-    
+
     - uses: actions/checkout@v2
       with:
-        path: main
-    
+        path: ${{env.SOURCE_DIR}}
+
     - name: Debug after checkout with path
       run: |
         echo ${{github.workspace}}
@@ -52,7 +54,7 @@ jobs:
       id: cache-install
       uses: actions/cache@v2
       with:
-        path: ${{github.workspace}}/_build/INSTALL
+        path: ${{github.workspace}}/${{env.BUILD_DIR}}/INSTALL
         key: ${{runner.os}}-install
 
     - name: Download latest iricsdk
@@ -70,7 +72,7 @@ jobs:
         del $zipfile
         # export environment variable IRICLIB_VERSION for later steps
         Write-Output "IRICLIB_VERSION=$($matches.major).$($matches.minor).$($matches.patch)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-    
+
     - name: Install oneAPI Fortran
       shell: cmd
       if: steps.cache-install.outputs.cache-hit != 'true'
@@ -83,16 +85,16 @@ jobs:
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       if: steps.cache-install.outputs.cache-hit != 'true'
-      run: cmake -B ${{github.workspace}}/_build -DCMAKE_PREFIX_PATH=C:/iricdev/lib/install/iriclib-${{env.IRICLIB_VERSION}}/lib/cmake/iriclib -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/_build/INSTALL
+      run: cmake -S ${{github.workspace}}/${{env.SOURCE_DIR}} -B ${{github.workspace}}/${{env.BUILD_DIR}} -DCMAKE_PREFIX_PATH=C:/iricdev/lib/install/iriclib-${{env.IRICLIB_VERSION}}/lib/cmake/iriclib -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/${{env.BUILD_DIR}}/INSTALL
 
     - name: Build
       # Build your program with the given configuration
       if: steps.cache-install.outputs.cache-hit != 'true'
-      run: cmake --build ${{github.workspace}}/_build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/${{env.BUILD_DIR}} --config ${{env.BUILD_TYPE}}
 
     # @todo
     # - name: Test
-    #   working-directory: ${{github.workspace}}/build
+    #   working-directory: ${{github.workspace}}/${{env.BUILD_DIR}}
     #   # Execute tests defined by the CMake configuration.
     #   # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
     #   run: ctest -C ${{env.BUILD_TYPE}}
@@ -112,4 +114,4 @@ jobs:
     - name: Install
       # Build your program with the given configuration
       if: steps.cache-install.outputs.cache-hit != 'true'
-      run: cmake --build ${{github.workspace}}/_build --config ${{env.BUILD_TYPE}} --target install
+      run: cmake --build ${{github.workspace}}/${{env.BUILD_DIR}} --config ${{env.BUILD_TYPE}} --target install
