@@ -106,7 +106,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: scharlton2/online_update
-        path: ../online_update
+        path: online_update
 
     - name: Debug after
       run: tree /A ..
