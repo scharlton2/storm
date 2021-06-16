@@ -157,9 +157,9 @@ jobs:
       shell: pwsh
       run: |
         cd online_update
-        git checkout -b ___${{github.run_number}}
+        git checkout -b __build_${{github.run_number}}
         git commit -am "built by iric.github.action"
-        git push --set-upstream origin ___${{github.run_number}}
+        git push --set-upstream origin __build_${{github.run_number}}
 
     - name: Commit and push
       if: ${{env.ONLINE_UPDATE_REPO == 'i-RIC/online_update'}}
