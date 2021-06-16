@@ -8,14 +8,20 @@ on:
 
 env:
   # CMAKE directories
-  SOURCE_DIR: main
-  BUILD_DIR: build
+  SOURCE_DIR: SOURCE
+  BUILD_DIR: BUILD
+  INSTALL_DIR: INSTALL
+  PACKAGE_DATA_DIR: online_update\dev_src\packages\solver.storm\data
 
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: RelWithDebInfo
 
+  ##
+  IRICLIB_REPO: scharlton2/iriclib                     # @todo change to i-RIC/iriclib
+  ONLINE_UPDATE_REPO: scharlton2/online_update         # @todo change to i-RIC/online_update
+
   # github API url
-  IRICLIB_API_URL: https://api.github.com/repos/scharlton2/iriclib    # @todo change to i-RIC/iriclib
+  IRICLIB_API_URL: https://api.github.com/repos/scharlton2/iriclib    # @todo change to i-RIC/iriclib        GITHUB_API_URL=https://api.github.com
   # oneAPI
   # Based on https://github.com/oneapi-src/oneapi-ci/blob/master/.github/workflows/build_all.yml
   WINDOWS_HPCKIT_URL: https://registrationcenter-download.intel.com/akdlm/irc_nas/17762/w_HPCKit_p_2021.2.0.2901.exe
@@ -44,6 +50,12 @@ jobs:
       with:
         path: ${{env.SOURCE_DIR}}
 
+    - name: Checkout online_update repo
+      uses: actions/checkout@v2
+      with:
+        repository: scharlton2/online_update      # @todo change to i-RIC/online_update
+        path: online_update
+
     - name: Debug after checkout with path
       run: |
         echo ${{github.workspace}}
@@ -54,8 +66,8 @@ jobs:
       id: cache-install
       uses: actions/cache@v2
       with:
-        path: ${{github.workspace}}/${{env.BUILD_DIR}}/INSTALL
-        key: ${{runner.os}}-install
+        path: ${{github.workspace}}/${{env.INSTALL_DIR}}
+        key: ${{runner.os}}-${{env.INSTALL_DIR}}
 
     - name: Download latest iricsdk
       shell: pwsh
@@ -85,7 +97,7 @@ jobs:
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       if: steps.cache-install.outputs.cache-hit != 'true'
-      run: cmake -S ${{github.workspace}}/${{env.SOURCE_DIR}} -B ${{github.workspace}}/${{env.BUILD_DIR}} -DCMAKE_PREFIX_PATH=C:/iricdev/lib/install/iriclib-${{env.IRICLIB_VERSION}}/lib/cmake/iriclib -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/${{env.BUILD_DIR}}/INSTALL
+      run: cmake -S ${{github.workspace}}/${{env.SOURCE_DIR}} -B ${{github.workspace}}/${{env.BUILD_DIR}} -DCMAKE_PREFIX_PATH=C:/iricdev/lib/install/iriclib-${{env.IRICLIB_VERSION}}/lib/cmake/iriclib -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/${{env.INSTALL_DIR}}
 
     - name: Build
       # Build your program with the given configuration
@@ -102,19 +114,26 @@ jobs:
     #     "C:\Program Files (x86)\Intel\oneAPI\setvars.bat" intel64 vs2019
     #     ctest -C ${{env.BUILD_TYPE}}
 
-    - name: Debug before
-      run: tree /A ..
+    # - name: Debug before
+    #   run: tree /A ..
 
-    - name: Checkout online_update repo
-      uses: actions/checkout@v2
-      with:
-        repository: scharlton2/online_update
-        path: online_update
+    # - name: Checkout online_update repo
+    #   uses: actions/checkout@v2
+    #   with:
+    #     repository: scharlton2/online_update
+    #     path: online_update
 
-    - name: Debug after
-      run: tree /A ..
+    # - name: Debug after
+    #   run: tree /A ..
 
     - name: Install
       # Build your program with the given configuration
       if: steps.cache-install.outputs.cache-hit != 'true'
       run: cmake --build ${{github.workspace}}/${{env.BUILD_DIR}} --config ${{env.BUILD_TYPE}} --target install
+
+    - name: Copy to package data directory
+      shell: pwsh
+      run: |
+        Copy-Item .\${{env.INSTALL_DIR}}\bin\* .\${{env.PACKAGE_DATA_DIR}}\.
+        cd online_update
+        git status
