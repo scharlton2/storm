@@ -202,53 +202,44 @@ jobs:
     #     directory: ${{env.SOURCE_DIR}}
     #     branch: __test__
 
-    - name: Debug actor
-      shell: pwsh
-      run: |
-        Write-Output "GITHUB_ACTOR=${env:GITHUB_ACTOR}"
-        Write-Output "GITHUB_ACTOR=${{env.GITHUB_ACTOR}}"
-        Write-Output "WORKFLOW_PAT=${{secrets.WORKFLOW_PAT}}"
-        Write-Output ${{secrets.WORKFLOW_PAT}}
+    - name: Commit & Push changes
+      uses: actions-js/push@master
+      with:
+        github_token: ${{secrets.WORKFLOW_PAT}}
+        repository: ${{env.ONLINE_UPDATE_REPO}}
+        directory: online_update
+        branch: __build_${{github.run_number}}
 
-    # - name: Commit & Push changes
-    #   uses: actions-js/push@master
-    #   with:
-    #     github_token: ${{secrets.WORKFLOW_PAT}}
-    #     repository: ${{env.ONLINE_UPDATE_REPO}}
-    #     directory: online_update
-    #     branch: __build_${{github.run_number}}
+    # - run: |
+    #     cd ${{env.SOURCE_DIR}}
+    #     git status
+    #     git remote -v
+    #     date > generated.txt
+    #     git config user.name github-actions[bot]
+    #     git config user.email github-actions[bot]@users.noreply.github.com
+    #     git add .
+    #     git commit -m "generated"
+    #     git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/storm.git
 
-
-    - run: |
-        cd ${{env.SOURCE_DIR}}
-        git status
-        git remote -v
-        date > generated.txt
-        git config user.name github-actions[bot]
-        git config user.email github-actions[bot]@users.noreply.github.com
-        git add .
-        git commit -m "generated"
-        git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/storm.git
-
-    - run: |
-        cd hdf5_cmake
-        git status
-        git remote -v
-        date > generated.txt
-        git config user.name github-actions[bot]
-        git config user.email github-actions[bot]@users.noreply.github.com
-        git add .
-        git commit -m "generated"
-        git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/hdf5_cmake.git
+    # - run: |
+    #     cd hdf5_cmake
+    #     git status
+    #     git remote -v
+    #     date > generated.txt
+    #     git config user.name github-actions[bot]
+    #     git config user.email github-actions[bot]@users.noreply.github.com
+    #     git add .
+    #     git commit -m "generated"
+    #     git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/hdf5_cmake.git
 
 
-    - run: |
-        cd online_update
-        git status
-        git remote -v
-        date > generated.txt
-        git config user.name github-actions[bot]
-        git config user.email github-actions[bot]@users.noreply.github.com
-        git add .
-        git commit -m "generated"
-        git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/online_update.git
+    # - run: |
+    #     cd online_update
+    #     git status
+    #     git remote -v
+    #     date > generated.txt
+    #     git config user.name github-actions[bot]
+    #     git config user.email github-actions[bot]@users.noreply.github.com
+    #     git add .
+    #     git commit -m "generated"
+    #     git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/online_update.git
