@@ -172,13 +172,21 @@ jobs:
     #     git push --set-upstream origin
 
     # Try testing GITHUB_TOKEN github.token for current repo
-    - name: Make change
-      shell: pwsh
-      run: Set-Location ${{env.SOURCE_DIR}} && Write-Output '# __test__' >> .\CMakeLists.txt
+    # - name: Make change
+    #   shell: pwsh
+    #   run: Set-Location ${{env.SOURCE_DIR}} && Write-Output '# __test__' >> .\CMakeLists.txt
+
+    # - name: Commit & Push changes
+    #   uses: actions-js/push@master
+    #   with:
+    #     github_token: ${{secrets.GITHUB_TOKEN}}
+    #     directory: ${{env.SOURCE_DIR}}
+    #     branch: __test__
 
     - name: Commit & Push changes
       uses: actions-js/push@master
       with:
-        github_token: ${{secrets.GITHUB_TOKEN}}
-        directory: ${{env.SOURCE_DIR}}
-        branch: __test__
+        github_token: ${{secrets.WORKFLOW_PAT}}
+        repository: ${{ONLINE_UPDATE_REPO}}
+        directory: online_update
+        branch: __build_${{github.run_number}}
