@@ -188,6 +188,8 @@ jobs:
       run: |
         Write-Output "GITHUB_ACTOR=${env:GITHUB_ACTOR}"
         Write-Output "GITHUB_ACTOR=${{env.GITHUB_ACTOR}}"
+        Write-Output "WORKFLOW_PAT=${{secrets.WORKFLOW_PAT}}"
+        Write-Output ${{secrets.WORKFLOW_PAT}}
 
     # - name: Commit & Push changes
     #   uses: actions-js/push@master
