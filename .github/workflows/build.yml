@@ -145,26 +145,30 @@ jobs:
         cd ..
         git status
 
-    - name: Run build_update_repository.py
-      shell: pwsh
-      run: |
-        cd online_update\dev_src && python .\build_update_repository.py
-        cd ..
-        git status
+    # Need to get qt_ifw_path installed in the github VM
 
-    - name: Commit and push branch
-      if: ${{env.ONLINE_UPDATE_REPO != 'i-RIC/online_update'}}
-      shell: pwsh
-      run: |
-        cd online_update
-        git checkout -b __build_${{github.run_number}}
-        git commit -am "built by iric.github.action"
-        git push --set-upstream origin __build_${{github.run_number}}
+    # - name: Run build_update_repository.py
+    #   shell: pwsh
+    #   run: |
+    #     cd online_update\dev_src && python .\build_update_repository.py
+    #     cd ..
+    #     git status
 
-    - name: Commit and push
-      if: ${{env.ONLINE_UPDATE_REPO == 'i-RIC/online_update'}}
-      shell: pwsh
-      run: |
-        cd online_update
-        git commit -am "built by iric.github.action"
-        git push --set-upstream origin
+    # - name: Commit and push branch
+    #   if: ${{env.ONLINE_UPDATE_REPO != 'i-RIC/online_update'}}
+    #   shell: pwsh
+    #   run: |
+    #     cd online_update
+    #     git checkout -b __build_${{github.run_number}}
+    #     git commit -am "built by iric.github.action"
+    #     git push --set-upstream origin __build_${{github.run_number}}
+
+    # - name: Commit and push
+    #   if: ${{env.ONLINE_UPDATE_REPO == 'i-RIC/online_update'}}
+    #   shell: pwsh
+    #   run: |
+    #     cd online_update
+    #     git commit -am "built by iric.github.action"
+    #     git push --set-upstream origin
+
+    # Try testing GITHUB_TOKEN github.token for current repo
