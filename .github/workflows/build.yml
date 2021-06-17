@@ -60,6 +60,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: scharlton2/hdf5_cmake
+        fetch-depth: 0
         path: hdf5_cmake
 
     - name: Debug after checkout with path
