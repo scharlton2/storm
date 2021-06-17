@@ -186,7 +186,8 @@ jobs:
     - name: Debug actor
       shell: pwsh
       run: |
-        Write-Output "GITHUB_ACTOR=${{env.GITHUB_ACTOR}}""
+        Write-Output "GITHUB_ACTOR=${env:GITHUB_ACTOR}"
+        Write-Output "GITHUB_ACTOR=${{env.GITHUB_ACTOR}}"
 
     # - name: Commit & Push changes
     #   uses: actions-js/push@master
