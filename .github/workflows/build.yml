@@ -210,3 +210,14 @@ jobs:
         git add .
         git commit -m "generated"
         git push
+
+    - run: |
+        cd online_update
+        git status
+        git remote -v
+        date > generated.txt
+        git config user.name github-actions[bot]
+        git config user.email github-actions[bot]@users.noreply.github.com
+        git add .
+        git commit -m "generated"
+        git push
