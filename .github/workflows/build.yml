@@ -57,24 +57,6 @@ jobs:
         persist-credentials: false                # required to commit with a Personal access token
         path: online_update
 
-    # - name: Checkout hdf5_cmake repo
-    #   uses: actions/checkout@v2
-    #   with:
-    #     repository: scharlton2/hdf5_cmake
-    #     fetch-depth: 0
-    #     path: hdf5_cmake
-
-    # - run: |
-    #     git clone https://github.com/scharlton2/hdf5_cmake.git
-
-    - name: Checkout hdf5_cmake repo
-      uses: actions/checkout@v2
-      with:
-        repository: scharlton2/hdf5_cmake
-        persist-credentials: false
-        path: hdf5_cmake
-
-
     - name: Debug after checkout with path
       run: |
         echo ${{github.workspace}}
@@ -133,18 +115,6 @@ jobs:
     #     "C:\Program Files (x86)\Intel\oneAPI\setvars.bat" intel64 vs2019
     #     ctest -C ${{env.BUILD_TYPE}}
 
-    # - name: Debug before
-    #   run: tree /A ..
-
-    # - name: Checkout online_update repo
-    #   uses: actions/checkout@v2
-    #   with:
-    #     repository: scharlton2/online_update
-    #     path: online_update
-
-    # - name: Debug after
-    #   run: tree /A ..
-
     - name: Install
       # Build your program with the given configuration
       if: steps.cache-install.outputs.cache-hit != 'true'
@@ -173,36 +143,8 @@ jobs:
     #     cd ..
     #     git status
 
-    # - name: Commit and push branch
-    #   if: ${{env.ONLINE_UPDATE_REPO != 'i-RIC/online_update'}}
-    #   shell: pwsh
-    #   run: |
-    #     cd online_update
-    #     git checkout -b __build_${{github.run_number}}
-    #     git commit -am "built by iric.github.action"
-    #     git push --set-upstream origin __build_${{github.run_number}}
-
-    # - name: Commit and push
-    #   if: ${{env.ONLINE_UPDATE_REPO == 'i-RIC/online_update'}}
-    #   shell: pwsh
-    #   run: |
-    #     cd online_update
-    #     git commit -am "built by iric.github.action"
-    #     git push --set-upstream origin
-
-    # Try testing GITHUB_TOKEN github.token for current repo
-    # - name: Make change
-    #   shell: pwsh
-    #   run: Set-Location ${{env.SOURCE_DIR}} && Write-Output '# __test__' >> .\CMakeLists.txt
-
-    # - name: Commit & Push changes
-    #   uses: actions-js/push@master
-    #   with:
-    #     github_token: ${{secrets.GITHUB_TOKEN}}
-    #     directory: ${{env.SOURCE_DIR}}
-    #     branch: __test__
-
-    - name: Commit & Push changes
+    - name: Commit and push branch
+      if: ${{env.ONLINE_UPDATE_REPO != 'i-RIC/online_update'}}
       uses: actions-js/push@master
       with:
         github_token: ${{secrets.WORKFLOW_PAT}}
@@ -210,36 +152,10 @@ jobs:
         directory: online_update
         branch: __build_${{github.run_number}}
 
-    # - run: |
-    #     cd ${{env.SOURCE_DIR}}
-    #     git status
-    #     git remote -v
-    #     date > generated.txt
-    #     git config user.name github-actions[bot]
-    #     git config user.email github-actions[bot]@users.noreply.github.com
-    #     git add .
-    #     git commit -m "generated"
-    #     git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/storm.git
-
-    # - run: |
-    #     cd hdf5_cmake
-    #     git status
-    #     git remote -v
-    #     date > generated.txt
-    #     git config user.name github-actions[bot]
-    #     git config user.email github-actions[bot]@users.noreply.github.com
-    #     git add .
-    #     git commit -m "generated"
-    #     git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/hdf5_cmake.git
-
-
-    # - run: |
-    #     cd online_update
-    #     git status
-    #     git remote -v
-    #     date > generated.txt
-    #     git config user.name github-actions[bot]
-    #     git config user.email github-actions[bot]@users.noreply.github.com
-    #     git add .
-    #     git commit -m "generated"
-    #     git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/online_update.git
+    - name: Commit and push
+      if: ${{env.ONLINE_UPDATE_REPO == 'i-RIC/online_update'}}
+      uses: actions-js/push@master
+      with:
+        github_token: ${{secrets.WORKFLOW_PAT}}
+        repository: ${{env.ONLINE_UPDATE_REPO}}
+        directory: online_update
