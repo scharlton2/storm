@@ -204,3 +204,4 @@ install(FILES SToRM/definition-xsy.xml DESTINATION "${CMAKE_INSTALL_BINDIR}" REN
 # include(CTest)
 
 # add_test(TestRun storm)
+# __test__
