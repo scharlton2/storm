@@ -54,6 +54,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: scharlton2/online_update      # @todo change to i-RIC/online_update
+        persist-credentials: false                # required to commit with a Personal access token
         path: online_update
 
     # - name: Checkout hdf5_cmake repo
