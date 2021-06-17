@@ -183,10 +183,15 @@ jobs:
     #     directory: ${{env.SOURCE_DIR}}
     #     branch: __test__
 
-    - name: Commit & Push changes
-      uses: actions-js/push@master
-      with:
-        github_token: ${{secrets.WORKFLOW_PAT}}
-        repository: ${{env.ONLINE_UPDATE_REPO}}
-        directory: online_update
-        branch: __build_${{github.run_number}}
+    - name: Debug actor
+      shell: pwsh
+      run: |
+        Write-Output "GITHUB_ACTOR=${{env.GITHUB_ACTOR}}""
+
+    # - name: Commit & Push changes
+    #   uses: actions-js/push@master
+    #   with:
+    #     github_token: ${{secrets.WORKFLOW_PAT}}
+    #     repository: ${{env.ONLINE_UPDATE_REPO}}
+    #     directory: online_update
+    #     branch: __build_${{github.run_number}}
