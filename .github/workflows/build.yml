@@ -190,7 +190,6 @@ jobs:
         Write-Output "GITHUB_ACTOR=${{env.GITHUB_ACTOR}}"
         Write-Output "WORKFLOW_PAT=${{secrets.WORKFLOW_PAT}}"
         Write-Output ${{secrets.WORKFLOW_PAT}}
-        Write-Output "testing x-oauth-basic checkout and commit"
 
     # - name: Commit & Push changes
     #   uses: actions-js/push@master
