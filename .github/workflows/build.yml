@@ -56,12 +56,15 @@ jobs:
         repository: scharlton2/online_update      # @todo change to i-RIC/online_update
         path: online_update
 
-    - name: Checkout hdf5_cmake repo
-      uses: actions/checkout@v2
-      with:
-        repository: scharlton2/hdf5_cmake
-        fetch-depth: 0
-        path: hdf5_cmake
+    # - name: Checkout hdf5_cmake repo
+    #   uses: actions/checkout@v2
+    #   with:
+    #     repository: scharlton2/hdf5_cmake
+    #     fetch-depth: 0
+    #     path: hdf5_cmake
+
+    - run: |
+        git clone https://github.com/scharlton2/hdf5_cmake.git
 
     - name: Debug after checkout with path
       run: |
