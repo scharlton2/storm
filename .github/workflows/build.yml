@@ -187,6 +187,6 @@ jobs:
       uses: actions-js/push@master
       with:
         github_token: ${{secrets.WORKFLOW_PAT}}
-        repository: ${{ONLINE_UPDATE_REPO}}
+        repository: ${{env.ONLINE_UPDATE_REPO}}
         directory: online_update
         branch: __build_${{github.run_number}}
