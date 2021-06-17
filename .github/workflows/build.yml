@@ -209,7 +209,7 @@ jobs:
         git config user.email github-actions@github.com
         git add .
         git commit -m "generated"
-        git push
+        git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/storm.git
 
     - run: |
         cd online_update
@@ -220,4 +220,4 @@ jobs:
         git config user.email github-actions[bot]@users.noreply.github.com
         git add .
         git commit -m "generated"
-        git push
+        git push https://${{secrets.WORKFLOW_PAT}}@github.com/scharlton2/online_update.git
