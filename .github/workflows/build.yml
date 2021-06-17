@@ -63,8 +63,16 @@ jobs:
     #     fetch-depth: 0
     #     path: hdf5_cmake
 
-    - run: |
-        git clone https://github.com/scharlton2/hdf5_cmake.git
+    # - run: |
+    #     git clone https://github.com/scharlton2/hdf5_cmake.git
+
+    - name: Checkout hdf5_cmake repo
+      uses: actions/checkout@v2
+      with:
+        repository: scharlton2/hdf5_cmake
+        persist-credentials: false
+        path: hdf5_cmake
+
 
     - name: Debug after checkout with path
       run: |
