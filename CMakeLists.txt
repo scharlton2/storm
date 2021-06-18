@@ -201,6 +201,19 @@ install(TARGETS SToRM DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
 install(FILES SToRM/definition-xsy.xml DESTINATION "${CMAKE_INSTALL_BINDIR}" RENAME definition.xml)
 
-# include(CTest)
+include(CTest)
 
-# add_test(TestRun storm)
+if (BUILD_TESTING)
+  add_subdirectory(tests)
+endif()
+
+message(STATUS "TARGET_FILE = $<TARGET_FILE:SToRM>")
+message(STATUS "TARGET_NAME_IF_EXISTS = $<TARGET_NAME_IF_EXISTS:SToRM>")
+
+
+message(STATUS "TARGET_FILE = $<TARGET_FILE:iriclib::iriclib>")
+message(STATUS "TARGET_NAME_IF_EXISTS = $<TARGET_NAME_IF_EXISTS:iriclib::iriclib>")
+
+#add_test(TestTutorial_1 SToRM Case1.cgn)
+add_test(TestTutorial_1 SToRM)
+
