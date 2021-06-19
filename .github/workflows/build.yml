@@ -154,7 +154,7 @@ jobs:
       shell: pwsh
       run: |
         Set-Location online_update\dev_src
-        Write-Output "QT_IFW_PATH = 'C:\\Qt\\Tools\\QtInstallerFramework\\2.0'" > qt_ifw_path.py
+        Write-Output "QT_IFW_PATH = 'C:\\Qt\\Tools\\QtInstallerFramework\\$env:IFW_VERSION'" > qt_ifw_path.py
         python .\build_update_repository.py
 
     - name: Commit and push branch
