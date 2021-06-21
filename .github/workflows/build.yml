@@ -19,11 +19,11 @@ env:
   INSTALL_DIR: INSTALL
 
   # Repos
-  IRICLIB_REPO: scharlton2/iriclib                     # @todo change to i-RIC/iriclib
-  ONLINE_UPDATE_REPO: scharlton2/online_update         # @todo change to i-RIC/online_update
+  IRICLIB_REPO: i-RIC/iriclib
+  ONLINE_UPDATE_REPO: i-RIC/online_update
 
   # github API url
-  IRICLIB_API_URL: ${{github.api_url}}/repos/scharlton2/iriclib    # @todo change to i-RIC/iriclib
+  IRICLIB_API_URL: ${{github.api_url}}/repos/i-RIC/iriclib
   IFW_API_URL: ${{github.api_url}}/repos/scharlton2/ifw
 
   # oneAPI
@@ -57,7 +57,7 @@ jobs:
     - name: Checkout online_update repo
       uses: actions/checkout@v2
       with:
-        repository: scharlton2/online_update      # @todo change to i-RIC/online_update
+        repository: i-RIC/online_update
         persist-credentials: false                # required to commit with a Personal access token
         path: online_update
 
@@ -165,18 +165,9 @@ jobs:
         git status
 
     - name: Commit and push branch
-      if: ${{env.ONLINE_UPDATE_REPO != 'i-RIC/online_update'}}
       uses: actions-js/push@master
       with:
         github_token: ${{secrets.WORKFLOW_PAT}}
         repository: ${{env.ONLINE_UPDATE_REPO}}
         directory: online_update
-        branch: __build_${{github.run_number}}
-
-    - name: Commit and push
-      if: ${{env.ONLINE_UPDATE_REPO == 'i-RIC/online_update'}}
-      uses: actions-js/push@master
-      with:
-        github_token: ${{secrets.WORKFLOW_PAT}}
-        repository: ${{env.ONLINE_UPDATE_REPO}}
-        directory: online_update
+        branch: __${{github.event.repository.name}}_${{github.run_number}}        # @todo remove branch
