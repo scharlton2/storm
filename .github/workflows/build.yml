@@ -7,10 +7,25 @@ on:
       - cgns-online
 
 env:
+  # online_update directory
+  PACKAGE_DATA_DIR: online_update\dev_src\packages\solver.storm\data
+
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: RelWithDebInfo
+
+  # CMAKE directories
+  SOURCE_DIR: SOURCE
+  BUILD_DIR: BUILD
+  INSTALL_DIR: INSTALL
+
+  # Repos
+  IRICLIB_REPO: i-RIC/iriclib
+  ONLINE_UPDATE_REPO: i-RIC/online_update
+
   # github API url
-  IRICLIB_API_URL: https://api.github.com/repos/scharlton2/iriclib    # @todo change to i-RIC/iriclib
+  IRICLIB_API_URL: ${{github.api_url}}/repos/i-RIC/iriclib
+  IFW_API_URL: ${{github.api_url}}/repos/scharlton2/ifw
+
   # oneAPI
   # Based on https://github.com/oneapi-src/oneapi-ci/blob/master/.github/workflows/build_all.yml
   WINDOWS_HPCKIT_URL: https://registrationcenter-download.intel.com/akdlm/irc_nas/17762/w_HPCKit_p_2021.2.0.2901.exe
@@ -26,14 +41,38 @@ jobs:
     runs-on: windows-latest
 
     steps:
+
+    - name: Debug before checkout with path
+      run: |
+        Get-Command cmake
+        Get-Command 7z
+        Get-Command curl
+        echo ${{github.workspace}}
+        echo ${{runner.workspace}}
+
     - uses: actions/checkout@v2
+      with:
+        path: ${{env.SOURCE_DIR}}
+
+    - name: Checkout online_update repo
+      uses: actions/checkout@v2
+      with:
+        repository: i-RIC/online_update
+        persist-credentials: false                # required to commit with a Personal access token
+        path: online_update
+
+    - name: Debug after checkout with path
+      run: |
+        echo ${{github.workspace}}
+        echo ${{runner.workspace}}
+        dir env:
 
     - name: Cache install
       id: cache-install
       uses: actions/cache@v2
       with:
-        path: ${{github.workspace}}/_build/INSTALL
-        key: ${{runner.os}}-install
+        path: ${{github.workspace}}/${{env.INSTALL_DIR}}
+        key: ${{runner.os}}-${{env.INSTALL_DIR}}
 
     - name: Download latest iricsdk
       shell: pwsh
@@ -50,7 +89,7 @@ jobs:
         del $zipfile
         # export environment variable IRICLIB_VERSION for later steps
         Write-Output "IRICLIB_VERSION=$($matches.major).$($matches.minor).$($matches.patch)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-    
+
     - name: Install oneAPI Fortran
       shell: cmd
       if: steps.cache-install.outputs.cache-hit != 'true'
@@ -63,21 +102,72 @@ jobs:
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       if: steps.cache-install.outputs.cache-hit != 'true'
-      run: cmake -B ${{github.workspace}}/_build -DCMAKE_PREFIX_PATH=C:/iricdev/lib/install/iriclib-${{env.IRICLIB_VERSION}}/lib/cmake/iriclib -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/_build/INSTALL
+      run: cmake -S ${{github.workspace}}/${{env.SOURCE_DIR}} -B ${{github.workspace}}/${{env.BUILD_DIR}} -DCMAKE_PREFIX_PATH=C:/iricdev/lib/install/iriclib-${{env.IRICLIB_VERSION}}/lib/cmake/iriclib -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/${{env.INSTALL_DIR}}
 
     - name: Build
       # Build your program with the given configuration
       if: steps.cache-install.outputs.cache-hit != 'true'
-      run: cmake --build ${{github.workspace}}/_build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/${{env.BUILD_DIR}} --config ${{env.BUILD_TYPE}}
 
     # @todo
     # - name: Test
-    #   working-directory: ${{github.workspace}}/build
+    #   working-directory: ${{github.workspace}}/${{env.BUILD_DIR}}
     #   # Execute tests defined by the CMake configuration.
     #   # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-    #   run: ctest -C ${{env.BUILD_TYPE}}
+    #   # set paths for dlls
+    #   run: |
+    #     C:\iricdev\lib\setvars.bat  @todo
+    #     "C:\Program Files (x86)\Intel\oneAPI\setvars.bat" intel64 vs2019
+    #     ctest -C ${{env.BUILD_TYPE}}
 
     - name: Install
       # Build your program with the given configuration
       if: steps.cache-install.outputs.cache-hit != 'true'
-      run: cmake --build ${{github.workspace}}/_build --config ${{env.BUILD_TYPE}} --target install
+      run: cmake --build ${{github.workspace}}/${{env.BUILD_DIR}} --config ${{env.BUILD_TYPE}} --target install
+
+    - name: Copy to package data directory
+      shell: pwsh
+      run: |
+        Copy-Item .\${{env.INSTALL_DIR}}\bin\* .\${{env.PACKAGE_DATA_DIR}}\.
+        Set-Location online_update
+        git status
+
+    - name: Run copy_release_and_version.py
+      shell: pwsh
+      run: |
+        Set-Location online_update\dev_src && python .\copy_release_and_version.py
+        Set-Location ..
+        git status
+
+    - name: Download QtInstallerFramework
+      shell: pwsh
+      run: |
+        # GET /repos/{owner}/{repo}/releases/latest
+        # see https://docs.github.com/en/rest/reference/repos#get-the-latest-release
+        # see https://docs.github.com/ja/rest/reference/repos#get-the-latest-release
+        $latest = (Invoke-WebRequest -Uri $env:IFW_API_URL/releases/latest -Method GET).Content | ConvertFrom-Json
+        $url = ($latest.assets | Where-Object {$_.name -match "^ifw-(?<major>0|[1-9]\d*)\.(?<minor>[0|1-9]\d*)\.7z$"}).browser_download_url
+        curl -LO $url
+        mkdir c:\Qt\Tools\QtInstallerFramework
+        $7zfile = $matches[0]
+        7z x -oc:\Qt\Tools\QtInstallerFramework $7zfile
+        del $7zfile
+        # export environment variable IFW_VERSION for later steps
+        Write-Output "IFW_VERSION=$($matches.major).$($matches.minor)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+    - name: Run build_update_repository.py
+      shell: pwsh
+      run: |
+        Set-Location online_update\dev_src
+        Write-Output "QT_IFW_PATH = 'C:\\Qt\\Tools\\QtInstallerFramework\\$env:IFW_VERSION'" > qt_ifw_path.py
+        python .\build_update_repository.py
+        Set-Location ..
+        git status
+
+    - name: Commit and push branch
+      uses: actions-js/push@master
+      with:
+        github_token: ${{secrets.WORKFLOW_PAT}}
+        repository: ${{env.ONLINE_UPDATE_REPO}}
+        directory: online_update
+        branch: __${{github.event.repository.name}}_${{github.run_number}}        # @todo remove branch

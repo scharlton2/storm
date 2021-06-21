@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(storm Fortran)
+project(SToRM Fortran)
 
 include(GNUInstallDirs)
 
 find_package(iriclib)
 
-add_executable(storm
+add_executable(SToRM
   Source_xsy-64bit/add_array_ptoH.f90
   Source_xsy-64bit/add_array_ptoT.f90
   Source_xsy-64bit/add_edge_to_array.f90
@@ -195,12 +195,12 @@ add_executable(storm
   Source_xsy-64bit/zeta_bcs.f90
 )
 
-target_link_libraries(storm iriclib::iriclib)
+target_link_libraries(SToRM iriclib::iriclib)
 
-install(TARGETS storm DESTINATION "${CMAKE_INSTALL_BINDIR}")
+install(TARGETS SToRM DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
 install(FILES SToRM/definition-xsy.xml DESTINATION "${CMAKE_INSTALL_BINDIR}" RENAME definition.xml)
 
-# include(CTest)
+include(CTest)
 
-# add_test(TestRun storm)
+add_subdirectory(tests)
