@@ -23,8 +23,8 @@ env:
   ONLINE_UPDATE_REPO: scharlton2/online_update         # @todo change to i-RIC/online_update
 
   # github API url
-  IRICLIB_API_URL: ${{env.GITHUB_API_URL}}/repos/scharlton2/iriclib    # @todo change to i-RIC/iriclib
-  IFW_API_URL: ${{env.GITHUB_API_URL}}/repos/scharlton2/ifw
+  IRICLIB_API_URL: ${{github.api_url}}/repos/scharlton2/iriclib    # @todo change to i-RIC/iriclib
+  IFW_API_URL: ${{github.api_url}}/repos/scharlton2/ifw
 
   # oneAPI
   # Based on https://github.com/oneapi-src/oneapi-ci/blob/master/.github/workflows/build_all.yml
